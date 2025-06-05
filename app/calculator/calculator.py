@@ -1,8 +1,5 @@
 import sys
 
-def get_user_input() -> str:
-    return input("$: ").lower()
-
 class Calculator():
     def __init__(self) -> None:
         print("Welcome to Python REPL Calculator, v.1.2")
@@ -14,15 +11,15 @@ class Calculator():
                 break
             try:
                 command, x, y = user_input.split()
-                match command:
-                    case 'add':
-                        continue
-                    case 'subtract':
-                        continue
-                    case 'multiply':
-                        continue
-                    case 'divide':
-                        continue
+                #match command:
+                #    case 'add':
+                #        continue
+                #    case 'subtract':
+                #        continue
+                #    case 'multiply':
+                #        continue
+                #    case 'divide':
+                #        continue
             except ValueError:
                 print("Input Error: Expected '<command> <x> <y>'")
                             
