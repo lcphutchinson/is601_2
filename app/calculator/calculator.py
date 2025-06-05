@@ -11,6 +11,15 @@ class Calculator():
                 break
             try:
                 command, x, y = user_input.split()
+            except ValueError:
+                print("Input Error: Expected '<command> <x> <y>'")
+                continue
+            try:
+                x = float(x)
+                y = float(y)
+            except ValueError:
+                print("Input Error: One or more operands not parsable.")
+                continue
                 #match command:
                 #    case 'add':
                 #        continue
@@ -20,6 +29,4 @@ class Calculator():
                 #        continue
                 #    case 'divide':
                 #        continue
-            except ValueError:
-                print("Input Error: Expected '<command> <x> <y>'")
                             

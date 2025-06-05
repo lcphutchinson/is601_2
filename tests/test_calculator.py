@@ -24,3 +24,16 @@ def test_one_operand(monkeypatch):
     inputs = ["add 1", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
     assert "Error:" in output
+
+def test_excess_operands(monkeypatch):
+    """Test non-exit REPL operation with an excess of inputs"""
+    inputs = ["add 3 4 5", "exit"]
+    output = run_calculator_with_input(monkeypatch, inputs)
+    assert "Error:" in output
+
+def test_bad_operand(monkeypatch):
+    """Test non-exit REPL operation with an invalid operand input"""
+    inputs = ["add 1 2b", "exit"]
+    output = run_calculator_with_input(monkeypatch, inputs)
+    assert "Error:" in output
+
