@@ -37,3 +37,40 @@ def test_bad_operand(monkeypatch):
     output = run_calculator_with_input(monkeypatch, inputs)
     assert "Error:" in output
 
+def test_addition(monkeypatch):
+    """Test valid REPL addition command"""
+    inputs = ["add 5 6", "exit"]
+    output = run_calculator_with_input(monkeypatch, inputs)
+    assert "Result: 11" in output
+    assert "Error:" not in output
+
+def test_subtraction(monkeypatch):
+    """Test valid REPL subtraction command"""
+    inputs = ["subtract 6 5", "exit"]
+    output = run_calculator_with_input(monkeypatch, inputs)
+    assert "Result: 1" in output
+    assert "Error:" not in output
+
+def test_multiplication(monkeypatch):
+    """Test valid REPL multiplication command"""
+    inputs = ["multiply 2 3", "exit"]
+    output = run_calculator_with_input(monkeypatch, inputs)
+    assert "Result: 6" in output
+    assert "Error:" not in output
+
+def test_division(monkeypatch):
+    """Test valid REPL division command"""
+    inputs = ["divide 5 2", "exit"]
+    output = run_calculator_with_input(monkeypatch, inputs)
+    assert "Result: 2.5" in output
+    assert "Error:" not in output
+
+def test_invalid_command(monkeypatch):
+    inputs = ["nonsense 3 2", "exit"]
+    output = run_calculator_with_input(monkeypatch, inputs)
+    assert "Error:" in output
+
+def test_division_by_zero(monkeypatch):
+    inputs = ["divide 2 0", "exit"]
+    output = run_calculator_with_input(monkeypatch, inputs)
+    assert "Error:" in output
