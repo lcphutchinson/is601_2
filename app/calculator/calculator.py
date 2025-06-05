@@ -1,4 +1,5 @@
 import sys
+from ..operations.operations import addition, subtraction, multiplication, division
 
 class Calculator():
     def __init__(self) -> None:
@@ -20,13 +21,21 @@ class Calculator():
             except ValueError:
                 print("Input Error: One or more operands not parsable.")
                 continue
-                #match command:
-                #    case 'add':
-                #        continue
-                #    case 'subtract':
-                #        continue
-                #    case 'multiply':
-                #        continue
-                #    case 'divide':
-                #        continue
-                            
+            match command:
+                case 'add':
+                    output = addition(x, y)
+                case 'subtract':
+                    output = subtraction(x, y)
+                case 'multiply':
+                    output = multiplication(x, y)
+                case 'divide':
+                    if y == 0:
+                        print("Input Error: Cannot Divide by Zero")
+                        continue
+                    output = division(x, y)
+                case _:
+                    print("Input Error: Invalid Command")
+                    continue
+            if output.is_integer():
+                output = int(output)
+            print(f"Result: {output}")
